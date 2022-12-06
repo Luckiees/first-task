@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('postModelLists', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken(); /** 세션의 토큰을 저장,인증에 사용 */
             $table->timestamps();
+            $table->string('u_id',35)->unique();
+            $table->string('title',250);
+            $table->integer('c_num');//카테고리 분류 넘버
         });
     }
 
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('postModelLists');
     }
 };

@@ -14,5 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome'); //view는 Helper Function임. 
 });
+Route::get('/index', function (Request $request) { //최초 접속
+    return view('index');
+    //$uri = $request->path();
+});
+// url/create가 된다. postController class의 create 메소드 실행 후 응답 돌려줌.
+Route::get('/create','PostController@create')->name('create');
+Route::post('/create',[PostController::class, 'store']);
+Route::get('/show/{id}',[PostController::class, 'show'])->name('show');
+Route::get('/list',[PostController::class, 'list']);
+Route::redirect('/here', '/there', 301);
+// // Route::fullback(function () {
+// //     '현재 페이지 오류로 인하여 준비중입니다.';
+// //     return view('main');
+// // });
