@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('postModels', function (Blueprint $table) {
+        Schema::create('PostModels', function (Blueprint $table) {
             $table->id();
             $table->timestamps();//글작성 시간
-            $table->string('u_id',35)->unique();//유저id
+            $table->string('uid',35)->unique();//유저id
             $table->string('title',250);//제목
             $table->text('content');//내용
         });
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('postModels');
+        Schema::dropIfExists('PostModels');
     }
 };

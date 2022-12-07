@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categorys', function (Blueprint $table) {
+        Schema::create('Categorys', function (Blueprint $table) {
             $table->increments('c_num');//카테고리 분류 넘버
             $table->string('category',100);//카테고리명
         });
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categorys');
+        Schema::dropIfExists('Categorys');
     }
 };

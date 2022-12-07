@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('postModelLists', function (Blueprint $table) {
+        Schema::create('PostModelLists', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('u_id',35)->unique();
+            $table->string('uid',35)->unique();
             $table->string('title',250);
             $table->integer('c_num');//카테고리 분류 넘버
         });
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('postModelLists');
+        Schema::dropIfExists('PostModelLists');
     }
 };
