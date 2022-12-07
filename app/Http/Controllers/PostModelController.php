@@ -11,8 +11,6 @@ class PostModelController extends Controller
         // Illuminate ORM에서 제공하는 함수. orderBy('컬럼', '정렬')->1p당 7개 게시물 출력;
          $PostModel = PostModel::orderBy('created_at', 'desc')->paginate(7); 
          return view('index')->with('PostModel', $PostModel);
-        $PostModel = PostModel::all();
-        return view('index',compact('PostModel'));
        
     }
     //create 요청
@@ -23,12 +21,12 @@ class PostModelController extends Controller
     //create한 내용 DB 저장
     public function store(Request $request){
         //유효성 검사를 위한 클래스(라라벨에 기본 내장되어 있음)
-        $PostModel = PostModel::make($data = Input::all(), PostModel::$rules);
-        if($PostModel->fails())//실패 시
-        {
-            return redirect()->back()->withErrors($validator->errors())->withInput();
-            //에러 리턴받아서 뒤로 가기 및 에러 확인하도록 유도
-        }
+        // $PostModel = PostModel::make($data = Input::all(), PostModel::$rules);
+        // if($PostModel->fails())//실패 시
+        // {
+        //     return redirect()->back()->withErrors($validator->errors())->withInput();
+        //     //에러 리턴받아서 뒤로 가기 및 에러 확인하도록 유도
+        // }
         $PostModel = PostModel::create([
             'title' => $request->input('title'),
             'content' => $request->input('content')
