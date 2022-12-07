@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('PostModels', function (Blueprint $table) {
             $table->id();
             $table->timestamps();//글작성 시간
-            $table->string('uid',35)->unique();//유저id
+            //$table->string('uid',35)->unique();//유저id
             $table->string('title',250);//제목
             $table->text('content');//내용
         });

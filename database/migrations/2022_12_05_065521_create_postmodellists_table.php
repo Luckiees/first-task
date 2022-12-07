@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('PostModelLists', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('uid',35)->unique();
+            //$table->string('uid',35)->unique();
             $table->string('title',250);
             $table->integer('c_num');//카테고리 분류 넘버
         });

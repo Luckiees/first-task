@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\PostModel;
 
 class PostModelController extends Controller
 {
       //웹 최초 진입 시 처리
       public function index(){
+        return view('main');
         // Illuminate ORM에서 제공하는 함수. orderBy('컬럼', '정렬')->1p당 7개 게시물 출력;
-         $PostModel = PostModel::orderBy('created_at', 'desc')->paginate(7); 
-         return view('index')->with('PostModel', $PostModel);
+        //  $PostModel = PostModel::orderBy('created_at', 'desc')->paginate(7); 
+        //  return view('main')->with('PostModel', $PostModel);
        
     }
     //create 요청

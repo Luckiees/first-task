@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome'); //view는 Helper Function임. 
 });
 Route::get('/list', function (Request $request) { //최초 접속
-    return view('index');
+    return view('main');
     //$uri = $request->path();
 });
 // url/create가 된다. PostModelController class의 create 메소드 실행 후 응답 돌려줌.
@@ -25,8 +25,8 @@ Route::get('/list', function (Request $request) { //최초 접속
 Route::get('/create', function () {
     return view('create');
 });
-Route::post('/list','PostModelController@store');
-Route::put('edit/{id}','PostModelController@edit')->name('update');
+Route::post('/list','App\Http\Controllers\PostModelController@store');
+Route::put('edit/{id}','App\Http\Controllers\PostModelController@edit')->name('update');
 Route::get('/show/{id}',[PostModelController::class, 'show'])->name('show');
 Route::redirect('/here', '/there', 301);
 // // Route::fullback(function () {
